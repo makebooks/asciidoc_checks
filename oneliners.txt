@@ -1,0 +1,6 @@
+
+# Look for missing files in the images/ directory
+perl -ne 'chomp; if (/image:+(.[^\[]*)/) { if (! -f $1) { print $1, "\n"; } }' *asciidoc
+
+# Look for images that don't have [] at the end:
+perl -ne 'chomp; if (/image:+(.[^\[]*)$/) { print $1, "\n" }' *asciidoc
